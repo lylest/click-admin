@@ -5,7 +5,14 @@ import { notFound } from 'next/navigation'
 
 import { Button } from '@/components/Button'
 import { Media } from '@/components/Media'
-import { Reveal, RevealImage, Stagger, StaggerItem } from '@/components/motion'
+import {
+  Parallax,
+  Reveal,
+  RevealImage,
+  SplitHeading,
+  Stagger,
+  StaggerItem,
+} from '@/components/motion'
 import { RichText } from '@/components/RichText'
 import { PostCard } from '@/components/blocks/News'
 import { FaqList } from '@/components/blocks/Sections'
@@ -90,12 +97,14 @@ function ProductHero({
           {hasPhoto && (
             <div className={cn('relative', hasSecond && 'pb-10 pl-10 sm:pb-14 sm:pl-14')}>
               <div className="relative aspect-[4/3.4] overflow-hidden rounded-3xl bg-tint shadow-xl shadow-ink/10">
-                <Media
-                  resource={product.heroImage}
-                  fill
-                  priority
-                  sizes="(min-width: 1024px) 45vw, 100vw"
-                />
+                <Parallax>
+                  <Media
+                    resource={product.heroImage}
+                    fill
+                    priority
+                    sizes="(min-width: 1024px) 45vw, 100vw"
+                  />
+                </Parallax>
               </div>
               {hasSecond && (
                 <div className="absolute bottom-0 left-0 aspect-square w-[38%] overflow-hidden rounded-2xl border-[6px] border-cream bg-white shadow-xl shadow-ink/15">
@@ -126,7 +135,7 @@ function Features({ product, t }: { product: Product; t: SiteText }) {
         <div className="mb-12 grid gap-6 lg:mb-16 lg:grid-cols-12 lg:gap-16">
           <Reveal className="lg:col-span-5">
             <h2 className="text-3xl font-semibold leading-tight text-ink md:text-4xl xl:text-5xl">
-              {fill(t.product.whatItDoes, { name: product.name })}
+              <SplitHeading text={fill(t.product.whatItDoes, { name: product.name })} />
             </h2>
           </Reveal>
           {product.overview && (
@@ -186,7 +195,7 @@ function Journeys({ product, t }: { product: Product; t: SiteText }) {
       <div className="wrap space-y-6 lg:space-y-8">
         <Reveal>
           <h2 className="mb-6 text-3xl font-semibold leading-tight text-ink md:text-4xl lg:mb-10 xl:text-5xl">
-            {t.product.howItWorks}
+            <SplitHeading text={t.product.howItWorks} />
           </h2>
         </Reveal>
         {journeys.map((j) => {
@@ -258,7 +267,7 @@ function SpecsAndUseCases({ product, t }: { product: Product; t: SiteText }) {
         {specs.length > 0 && (
           <Reveal>
             <h2 className="text-3xl font-semibold text-ink md:text-4xl">
-              {t.product.specifications}
+              <SplitHeading text={t.product.specifications} />
             </h2>
             <dl className="mt-8 divide-y divide-ink/10 border-y border-ink/10">
               {specs.map((s) => (
@@ -272,7 +281,9 @@ function SpecsAndUseCases({ product, t }: { product: Product; t: SiteText }) {
         )}
         {useCases.length > 0 && (
           <Reveal delay={0.1}>
-            <h2 className="text-3xl font-semibold text-ink md:text-4xl">{t.product.whoItsFor}</h2>
+            <h2 className="text-3xl font-semibold text-ink md:text-4xl">
+              <SplitHeading text={t.product.whoItsFor} />
+            </h2>
             <ul className="mt-8 divide-y divide-ink/10 border-y border-ink/10">
               {useCases.map((u) => (
                 <li key={u.id ?? u.text} className="flex items-center gap-3 py-4 text-lg text-ink">
@@ -299,7 +310,7 @@ async function ProductNews({ product, t }: { product: Product; t: SiteText }) {
         <div className="mb-12 flex flex-wrap items-end justify-between gap-6 lg:mb-16">
           <Reveal>
             <h2 className="text-3xl font-semibold leading-tight text-ink md:text-4xl xl:text-5xl">
-              {fill(t.product.news, { name: product.name })}
+              <SplitHeading text={fill(t.product.news, { name: product.name })} />
             </h2>
           </Reveal>
           <Link

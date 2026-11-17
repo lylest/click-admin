@@ -5,7 +5,7 @@ import { useCallback, useRef, useState, type CSSProperties } from 'react'
 
 import { CmsButton } from '../Button'
 import { Media } from '../Media'
-import { Reveal, RevealImage } from '../motion'
+import { Reveal, RevealImage, SplitHeading } from '../motion'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../ui/tabs'
 import { asMedia, cn, type BlockOf } from '@/lib/utils'
 
@@ -96,7 +96,7 @@ export function SpotlightBlock({ block }: { block: BlockOf<'spotlight'> }) {
     <>
       {block.heading && (
         <h2 className="text-3xl font-semibold leading-tight text-ink md:text-4xl xl:text-5xl">
-          {block.heading}
+          <SplitHeading text={block.heading} />
         </h2>
       )}
       {block.body && (
@@ -168,6 +168,7 @@ export function SpotlightBlock({ block }: { block: BlockOf<'spotlight'> }) {
               </Reveal>
               <RevealImage
                 delay={0.1}
+                parallax={false}
                 className={cn(
                   'relative order-first aspect-[4/3] lg:order-none lg:col-span-7 lg:aspect-auto lg:h-[min(40rem,calc(100svh-10rem))]',
                   block.imageOnLeft && 'lg:order-1',

@@ -7,6 +7,7 @@ import { useRef, useSyncExternalStore } from 'react'
 
 import { Icon } from '../Icon'
 import { Media } from '../Media'
+import { SplitHeading } from '../motion'
 import { asMedia, cn, type BlockOf } from '@/lib/utils'
 
 /**
@@ -96,7 +97,7 @@ export function CardsBlock({ block }: { block: BlockOf<'cards'> }) {
         >
           {block.heading && (
             <h2 className="text-4xl font-semibold leading-tight text-white md:text-5xl xl:text-6xl">
-              {block.heading}
+              <SplitHeading text={block.heading} />
             </h2>
           )}
           {block.intro && (

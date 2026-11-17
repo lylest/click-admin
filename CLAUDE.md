@@ -87,7 +87,13 @@ even if a reference screenshot shows something similar.
   write one-off `motion.*` code in sections:
   - `<Reveal>` fade + slide up on enter (headings, text columns, CTA bands)
   - `<Stagger>` + `<StaggerItem>` grids and lists, one item after another
-  - `<RevealImage>` photo frames (frame unclips, photo settles from slight zoom)
+  - `<RevealImage>` photo frames (frame unclips, photo settles from slight zoom,
+    then drifts inside the frame on scroll; `parallax={false}` for layered frames)
+  - `<Parallax>` the scroll drift alone (inside masks, hero photos)
+  - `<SplitHeading text>` inside every section `<h2>`: words rise with a slight tilt
+  - `<ScrollFillText>` large statement text that darkens word by word on scroll
+  - `<CountUp value>` stat numbers count up on view
+  (Style from the client's MindBlossom reference, built with Motion, not GSAP.)
   - `<MotionProvider>` (in the frontend layout) honours OS reduced-motion.
 - All reveal once on first view. `SectionHeading` already reveals itself.
 - Never animate the hero on load: it hides the first paint until JS runs.

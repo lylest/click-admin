@@ -8,7 +8,15 @@ import { RichText } from '../RichText'
 import { Eyebrow, SectionHeading } from '../SectionHeading'
 import { getProducts, getSiteText } from '@/lib/payload'
 import type { Product } from '@/payload-types'
-import { Reveal, RevealImage, Stagger, StaggerItem } from '../motion'
+import {
+  CountUp,
+  Parallax,
+  Reveal,
+  RevealImage,
+  SplitHeading,
+  Stagger,
+  StaggerItem,
+} from '../motion'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../ui/accordion'
 import { asMedia, cn, isPlaceholder, type BlockOf } from '@/lib/utils'
 
@@ -70,7 +78,9 @@ export function ContentBlock({ block }: { block: BlockOf<'content'> }) {
           <div className={cn(!hasImage && 'lg:col-span-5')}>
             <Eyebrow>{block.eyebrow}</Eyebrow>
             {block.heading && (
-              <h2 className="mt-2 text-3xl text-ink md:text-4xl lg:text-5xl">{block.heading}</h2>
+              <h2 className="mt-2 text-3xl text-ink md:text-4xl lg:text-5xl">
+                <SplitHeading text={block.heading} />
+              </h2>
             )}
           </div>
           <div className={cn(!hasImage ? 'lg:col-span-7' : 'mt-6')}>
@@ -144,7 +154,7 @@ export function StepsBlock({ block }: { block: BlockOf<'steps'> }) {
           <div className="lg:sticky lg:top-32">
             {block.heading && (
               <h2 className="text-3xl font-semibold leading-tight text-ink md:text-4xl xl:text-5xl">
-                {block.heading}
+                <SplitHeading text={block.heading} />
               </h2>
             )}
             {block.intro && (
@@ -201,7 +211,7 @@ export function StatsBlock({ block }: { block: BlockOf<'stats'> }) {
         >
           <dt className="mt-2 font-medium text-muted">{stat.label}</dt>
           <dd className="text-3xl font-semibold tracking-tight text-ink sm:text-4xl xl:text-5xl">
-            {stat.value}
+            <CountUp value={stat.value} />
           </dd>
         </StaggerItem>
       ))}
@@ -223,7 +233,7 @@ export function StatsBlock({ block }: { block: BlockOf<'stats'> }) {
   return (
     <section id={block.anchor ?? undefined} className="section">
       <div className="wrap grid items-center gap-12 lg:grid-cols-2 lg:gap-16 xl:gap-24">
-        <RevealImage radius="0" className="relative aspect-[5/4] w-full">
+        <RevealImage radius="0" parallax={false} className="relative aspect-[5/4] w-full">
           <div
             className="absolute inset-0"
             style={{
@@ -233,13 +243,15 @@ export function StatsBlock({ block }: { block: BlockOf<'stats'> }) {
               WebkitMaskSize: '100% 100%',
             }}
           >
-            <Media resource={block.image} fill sizes="(min-width: 1024px) 45vw, 100vw" />
+            <Parallax>
+              <Media resource={block.image} fill sizes="(min-width: 1024px) 45vw, 100vw" />
+            </Parallax>
           </div>
         </RevealImage>
         <Reveal>
           {block.heading && (
             <h2 className="text-3xl font-semibold leading-tight text-ink md:text-4xl xl:text-5xl">
-              {block.heading}
+              <SplitHeading text={block.heading} />
             </h2>
           )}
           {block.intro && (
@@ -316,7 +328,7 @@ export function CtaBlock({ block }: { block: BlockOf<'cta'> }) {
         <Reveal className="grid gap-8 rounded-2xl bg-primary px-8 py-12 lg:grid-cols-[1fr_auto] lg:items-end lg:gap-16 lg:px-14 lg:py-16">
           <div>
             <h2 className="max-w-2xl text-3xl text-white md:text-4xl lg:text-5xl">
-              {block.heading}
+              <SplitHeading text={block.heading} />
             </h2>
             {block.text && <p className="mt-4 max-w-xl text-lg text-white/75">{block.text}</p>}
           </div>
@@ -367,7 +379,7 @@ export function FaqList({
       <div className="wrap grid gap-12 lg:grid-cols-12 lg:gap-16">
         <Reveal className="lg:col-span-5 xl:col-span-4">
           <h2 className="text-3xl font-semibold leading-tight text-ink md:text-4xl xl:text-5xl">
-            {heading ?? 'Frequently asked questions'}
+            <SplitHeading text={heading ?? 'Frequently asked questions'} />
           </h2>
           {intro && <p className="mt-5 max-w-md text-lg leading-relaxed text-muted">{intro}</p>}
           {cta?.label && cta.url && (

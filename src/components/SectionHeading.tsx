@@ -1,4 +1,4 @@
-import { Reveal } from './motion'
+import { Reveal, SplitHeading } from './motion'
 import { cn } from '@/lib/utils'
 
 export function Eyebrow({ children, dark }: { children?: string | null; dark?: boolean }) {
@@ -34,7 +34,7 @@ export function SectionHeading({
         <h2
           className={cn('mt-2 text-3xl md:text-4xl lg:text-5xl', dark ? 'text-white' : 'text-ink')}
         >
-          {heading}
+          <SplitHeading text={heading} />
         </h2>
       )}
       {intro && (

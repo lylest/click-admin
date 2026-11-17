@@ -4,6 +4,8 @@ import { ArrowUpRight } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
+import { SplitHeading } from './motion'
+
 /**
  * The big call to action at the top of the footer. Hidden on the contact page
  * (the form is already there); on a product page a /contact link preselects
@@ -27,7 +29,7 @@ export function FooterCta({
   return (
     <div className="wrap grid gap-10 py-20 lg:grid-cols-[1fr_auto] lg:items-end lg:gap-16 lg:py-28">
       <h2 className="max-w-5xl whitespace-pre-line text-4xl font-semibold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-6xl xl:text-7xl">
-        {heading}
+        <SplitHeading text={heading} />
       </h2>
       {label && href && (
         <Link

@@ -2,6 +2,7 @@ import { Compass, Target } from 'lucide-react'
 
 import { IconTile } from '../Icon'
 import { Media } from '../Media'
+import { SplitHeading } from '../motion'
 import { RichText } from '../RichText'
 import { SectionHeading } from '../SectionHeading'
 import { asMedia, type BlockOf, isPlaceholder } from '@/lib/utils'
@@ -12,7 +13,9 @@ export function TimelineBlock({ block }: { block: BlockOf<'timeline'> }) {
       <div className="wrap grid gap-12 lg:grid-cols-12 lg:gap-16">
         <div className="lg:col-span-5">
           {block.heading && (
-            <h2 className="text-3xl text-ink md:text-4xl lg:text-5xl">{block.heading}</h2>
+            <h2 className="text-3xl text-ink md:text-4xl lg:text-5xl">
+              <SplitHeading text={block.heading} />
+            </h2>
           )}
           <RichText data={block.body} className="mt-6" />
         </div>

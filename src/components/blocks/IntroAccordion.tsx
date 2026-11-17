@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { Icon } from '../Icon'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../ui/accordion'
 import { Media } from '../Media'
-import { Reveal } from '../motion'
+import { Reveal, ScrollFillText } from '../motion'
 import { asMedia, cn, type BlockOf } from '@/lib/utils'
 
 /**
@@ -19,9 +19,10 @@ export function IntroAccordionBlock({ block }: { block: BlockOf<'introAccordion'
     <section id={block.anchor ?? undefined} className="section">
       <div className="wrap grid items-center gap-14 lg:grid-cols-2 lg:gap-20 xl:gap-28">
         <Reveal>
-          <h2 className="max-w-xl text-3xl font-normal leading-[1.15] md:text-4xl xl:text-[2.75rem]">
-            {block.headingMuted && <span className="text-ink/40">{block.headingMuted} </span>}
-            {block.heading && <span className="text-ink">{block.heading}</span>}
+          <h2 className="max-w-xl text-3xl font-normal leading-[1.15] text-ink md:text-4xl xl:text-[2.75rem]">
+            <ScrollFillText
+              parts={[{ text: block.headingMuted, muted: true }, { text: block.heading }]}
+            />
           </h2>
           {block.body && (
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted">{block.body}</p>

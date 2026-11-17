@@ -27,7 +27,9 @@ export async function ContactBlock({ block }: { block: BlockOf<'contact'> }) {
                   {realLines(office.address).length > 0 && (
                     <li className="flex gap-3">
                       <MapPin className="mt-0.5 size-5 shrink-0 text-primary" aria-hidden />
-                      <span className="whitespace-pre-line">{realLines(office.address).join('\n')}</span>
+                      <span className="whitespace-pre-line">
+                        {realLines(office.address).join('\n')}
+                      </span>
                     </li>
                   )}
                   {office.phone && !isPlaceholder(office.phone) && (
