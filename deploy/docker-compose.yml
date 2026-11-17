@@ -1,0 +1,58 @@
+# Click Group website on the shared server.
+#
+# Same pattern as the clickmeter stack: no ports of its own, routed by
+# andromega-traefik through labels on the shared andromega_edge network.
+#   clickgroup.co.tz      -> website
+#   cms.clickgroup.co.tz  -> same container; "/" redirects to the admin (/admin)
+# Routers are switched on by ROUTES_ENABLED=true in .env (set by cutover.sh);
+# until then the site runs privately and can be checked from the server.
+name: clickgroup-site
+
+networks:
+  edge:
+    external: true
+    name: andromega_edge
+
+volumes:
+  data:
+  media:
+
+services:
+  web:
+    image: clickgroup-site:latest
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      DATABASE_URL: file:/app/data/clickgroup.db
+      PAYLOAD_SERVER_URL: ''
+    volumes:
+      - data:/app/data
+      - media:/app/media
+    networks:
+      - edge
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:3000/').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    labels:
+      - traefik.enable=${ROUTES_ENABLED:-false}
+      - traefik.docker.network=andromega_edge
+      - traefik.http.services.clickgroup-site.loadbalancer.server.port=3000
+      # Website
+      - traefik.http.routers.clickgroup-site.rule=Host(`${SITE_HOST:-clickgroup.co.tz}`)
+      - traefik.http.routers.clickgroup-site.entrypoints=websecure
+      - traefik.http.routers.clickgroup-site.tls=true
+      - traefik.http.routers.clickgroup-site.tls.certresolver=letsencrypt
+      - traefik.http.routers.clickgroup-site.middlewares=secure-headers@file
+      - traefik.http.routers.clickgroup-site.service=clickgroup-site
+      # CMS host: same app, home page sends editors to the admin
+      - traefik.http.routers.clickgroup-cms.rule=Host(`${CMS_HOST:-cms.clickgroup.co.tz}`)
+      - traefik.http.routers.clickgroup-cms.entrypoints=websecure
+      - traefik.http.routers.clickgroup-cms.tls=true
+      - traefik.http.routers.clickgroup-cms.tls.certresolver=letsencrypt
+      - traefik.http.routers.clickgroup-cms.middlewares=clickgroup-cms-home,secure-headers@file
+      - traefik.http.routers.clickgroup-cms.service=clickgroup-site
+      - traefik.http.middlewares.clickgroup-cms-home.redirectregex.regex=^https://([^/]+)/?$$
+      - traefik.http.middlewares.clickgroup-cms-home.redirectregex.replacement=https://$${1}/admin

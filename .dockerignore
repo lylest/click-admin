@@ -1,0 +1,11 @@
+node_modules
+.next
+media
+*.db
+*.db-*
+.env
+.env.*
+!.env.example
+.git
+deploy/data
+*.tsbuildinfo

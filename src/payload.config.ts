@@ -15,13 +15,17 @@ import { Footer } from './globals/Footer'
 import { SiteText } from './globals/SiteText'
 import { Header } from './globals/Header'
 import { Settings } from './globals/Settings'
+import { migrations } from './migrations'
 import { seedIfEmpty } from './seed'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
 export default buildConfig({
-  serverURL: process.env.NEXT_PUBLIC_SERVER_URL || '',
+  // Empty in production so the admin and API work on any host (clickgroup.co.tz
+  // and cms.clickgroup.co.tz) with relative URLs. Absolute site links use
+  // NEXT_PUBLIC_SERVER_URL instead.
+  serverURL: process.env.PAYLOAD_SERVER_URL || '',
   admin: {
     user: Users.slug,
     meta: { titleSuffix: ' — Click Group CMS' },
@@ -34,6 +38,8 @@ export default buildConfig({
   typescript: { outputFile: path.resolve(dirname, 'payload-types.ts') },
   db: sqliteAdapter({
     client: { url: process.env.DATABASE_URL || '' },
+    // Production applies these on start; development keeps using schema push.
+    prodMigrations: migrations,
   }),
   sharp,
   // First start on an empty database loads the default content from CONTENT.md.

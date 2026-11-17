@@ -51,3 +51,24 @@ After changing the schema run `npm run generate:types`.
 - Set up an email adapter if inquiries should also be emailed (currently stored in the CMS only).
 - Database: create migrations with `npm run payload migrate:create` and run
   `npm run payload migrate` on deploy (dev mode auto-syncs the schema; production does not).
+
+## Production deploy
+
+The site runs as one Docker container (Next.js + Payload, SQLite) behind the
+server's shared Traefik. Files are in `deploy/`.
+
+1. Build and ship the image (from this repo):
+   `docker build -t clickgroup-site:latest . && docker save clickgroup-site:latest | gzip | ssh root@<server> 'gunzip | docker load'`
+2. On the server, in the deploy folder: copy `docker-compose.yml`, create `.env`
+   from `deploy/.env.example`, then `docker compose up -d`.
+3. On an empty database the site creates its tables (migrations in
+   `src/migrations`) and loads the default content from `src/seed`.
+4. Updates: rebuild and ship the image, then `docker compose up -d`. Content in
+   the database and uploads (Docker volumes) is kept.
+
+Domain switch (one time): `deploy/cutover.sh` moves the Click Meter app from
+clickgroup.co.tz to app.clickgroup.co.tz and puts this site on clickgroup.co.tz
+and cms.clickgroup.co.tz. `DRY_RUN=1` previews it; `deploy/rollback.sh` undoes it.
+
+After schema changes: `npm run payload migrate:create <name>` and commit the
+file in `src/migrations`; production applies it on start.
