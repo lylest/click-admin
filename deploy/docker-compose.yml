@@ -16,6 +16,7 @@ networks:
 volumes:
   data:
   media:
+  backups:
 
 services:
   web:
@@ -56,3 +57,25 @@ services:
       - traefik.http.routers.clickgroup-cms.service=clickgroup-site
       - traefik.http.middlewares.clickgroup-cms-home.redirectregex.regex=^https://([^/]+)/?$$
       - traefik.http.middlewares.clickgroup-cms-home.redirectregex.replacement=https://$${1}/admin
+
+  # Nightly backup: database snapshot + uploads, copied to object storage
+  # (same bucket as clickmeter, prefix clickgroup-site/). See deploy/backup.
+  backup:
+    image: clickgroup-site-backup:latest
+    build:
+      context: ./backup
+    restart: unless-stopped
+    environment:
+      BACKUP_HOUR_UTC: ${BACKUP_HOUR_UTC:-2}
+      BACKUP_RETENTION_DAYS: ${BACKUP_RETENTION_DAYS:-14}
+      BACKUP_S3_BUCKET: ${BACKUP_S3_BUCKET:-}
+      BACKUP_S3_PREFIX: ${BACKUP_S3_PREFIX:-clickgroup-site/}
+      BACKUP_S3_ENDPOINT: ${BACKUP_S3_ENDPOINT:-}
+      BACKUP_S3_ACCESS_KEY: ${BACKUP_S3_ACCESS_KEY:-}
+      BACKUP_S3_SECRET_KEY: ${BACKUP_S3_SECRET_KEY:-}
+      BACKUP_S3_REGION: ${BACKUP_S3_REGION:-us-east-1}
+    volumes:
+      - data:/data
+      - media:/media
+      - backups:/backups
+    network_mode: bridge

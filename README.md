@@ -72,3 +72,9 @@ and cms.clickgroup.co.tz. `DRY_RUN=1` previews it; `deploy/rollback.sh` undoes i
 
 After schema changes: `npm run payload migrate:create <name>` and commit the
 file in `src/migrations`; production applies it on start.
+
+Backups: the `backup` service (deploy/backup) snapshots the database and the
+uploads every night at 02:00 UTC, keeps 14 days on the server and copies each
+archive to object storage under `clickgroup-site/`. Restore: stop `web`, then
+`docker compose run --rm backup /restore.sh --list` and
+`docker compose run --rm backup /restore.sh <file>`.
