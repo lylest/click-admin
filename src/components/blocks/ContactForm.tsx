@@ -10,10 +10,10 @@ import { cn } from '@/lib/utils'
 
 const slugify = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-')
 
-const inputClass =
+export const inputClass =
   'mt-1.5 block w-full rounded-lg border border-line bg-white px-4 py-3 text-ink placeholder:text-muted/60 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20'
 
-function Field({
+export function Field({
   label,
   name,
   error,

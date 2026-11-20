@@ -10,7 +10,7 @@ and CONTENT.md for the agreed sections and default copy.
 - Products: **Click Meter** (prepaid electricity, water and gas metering for
   landlords) and the **Mortuary Lift System**.
 - English only. No public "check my meter" tool.
-- Fonts: Bricolage Grotesque, Inter as fallback. Brand teal `#025864`.
+- Fonts: Bricolage Grotesque, Inter as fallback. Brand blue `#0070C0` (from the letterhead; see globals.css).
 
 ## Design rules: it must not look vibe-coded
 

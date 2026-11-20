@@ -1,17 +1,18 @@
 # Click Group website: Next.js + Payload CMS (SQLite), standalone server build.
-FROM node:24-bookworm-slim AS deps
-WORKDIR /app
-COPY package.json package-lock.json .npmrc* ./
-RUN npm ci
-
+# Needs BuildKit (docker-buildx): the cache mounts keep npm's download cache and
+# Next's build cache between builds. Install and build share one stage so
+# node_modules is never copied between stages (that copy took 15+ minutes on
+# the legacy builder); only the small standalone output reaches the final image.
 FROM node:24-bookworm-slim AS build
 WORKDIR /app
-COPY --from=deps /app/node_modules ./node_modules
+COPY package.json package-lock.json .npmrc* ./
+RUN --mount=type=cache,target=/root/.npm npm ci --prefer-offline --no-audit --no-fund
 COPY . .
 ENV NEXT_TELEMETRY_DISABLED=1
 # Build-time values only; the real secret and URLs come from the runtime env.
 ENV PAYLOAD_SECRET=build-time-placeholder DATABASE_URL=file:/tmp/build.db
-RUN NODE_OPTIONS="--no-deprecation --max-old-space-size=6000" npx next build
+RUN --mount=type=cache,target=/app/.next/cache \
+  NODE_OPTIONS="--no-deprecation --max-old-space-size=6000" npx next build
 
 FROM node:24-bookworm-slim AS run
 WORKDIR /app

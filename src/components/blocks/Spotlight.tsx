@@ -12,16 +12,16 @@ import { asMedia, cn, type BlockOf } from '@/lib/utils'
 /**
  * Backdrop behind the photo: an angular panel that changes colour and shape on
  * each step (requested by the client, after their reference). Light tints that
- * sit with the teal palette. Every shape has the same number of points so
+ * sit with the blue palette. Every shape has the same number of points so
  * clip-path can morph between them; the last three points form the speech tail.
  */
 const BACKDROPS = [
   {
-    color: '#d5eeee',
+    color: '#d6e7f5',
     shape: 'polygon(4% 8%, 96% 0%, 100% 88%, 34% 92%, 28% 100%, 22% 92%, 0% 94%)',
   },
   {
-    color: '#d9efe6',
+    color: '#e3eef8',
     shape: 'polygon(0% 4%, 92% 8%, 98% 94%, 60% 90%, 54% 100%, 48% 90%, 6% 100%)',
   },
   {
@@ -33,7 +33,7 @@ const BACKDROPS = [
     shape: 'polygon(0% 10%, 98% 2%, 96% 100%, 40% 94%, 34% 100%, 28% 94%, 4% 90%)',
   },
   {
-    color: '#e6eedc',
+    color: '#e8eef6',
     shape: 'polygon(2% 2%, 94% 10%, 100% 90%, 70% 96%, 64% 100%, 58% 96%, 0% 98%)',
   },
 ]

@@ -100,16 +100,22 @@ export function HeroBlock({ block }: { block: BlockOf<'hero'> }) {
           {block.eyebrow && (
             <p className="mb-4 text-sm font-semibold text-primary">{block.eyebrow}</p>
           )}
-          <h1 className="text-[2.6rem] font-semibold leading-[1.06] tracking-tight text-ink sm:text-6xl xl:text-[4.25rem]">
+          <h1 className="text-[2.6rem] font-semibold leading-[1.06] tracking-tight text-ink motion-safe:animate-rise sm:text-6xl xl:text-[4.25rem]">
             {block.heading}
           </h1>
           {block.subheading && (
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ink/70 xl:text-xl">
+            <p
+              className="mt-6 max-w-2xl text-lg leading-relaxed text-ink/70 motion-safe:animate-rise xl:text-xl"
+              style={{ animationDelay: '120ms' }}
+            >
               {block.subheading}
             </p>
           )}
 
-          <div className="mt-9 flex flex-wrap items-center gap-3">
+          <div
+            className="mt-9 flex flex-wrap items-center gap-3 motion-safe:animate-rise"
+            style={{ animationDelay: '240ms' }}
+          >
             {primary?.label && primary.url && (
               <Link
                 href={primary.url}
@@ -134,9 +140,10 @@ export function HeroBlock({ block }: { block: BlockOf<'hero'> }) {
         {(hasStat || highlights.length > 0) && (
           <div
             className={cn(
-              'grid gap-8 sm:grid-cols-2 sm:gap-10',
+              'grid gap-8 motion-safe:animate-rise sm:grid-cols-2 sm:gap-10',
               hasPhotos && 'lg:col-start-2 lg:row-start-2 lg:self-start',
             )}
+            style={{ animationDelay: '360ms' }}
           >
             {hasStat && (
               <div>
@@ -177,14 +184,19 @@ export function PageHeaderBlock({ block }: { block: BlockOf<'pageHeader'> }) {
         {block.eyebrow && <p className="text-sm font-semibold text-primary">{block.eyebrow}</p>}
         <h1
           className={cn(
-            'max-w-3xl text-4xl text-ink md:text-5xl lg:text-6xl',
+            'max-w-3xl text-4xl text-ink motion-safe:animate-rise md:text-5xl lg:text-6xl',
             block.eyebrow && 'mt-3',
           )}
         >
           {block.heading}
         </h1>
         {block.subheading && (
-          <p className="mt-5 max-w-2xl text-lg text-muted lg:text-xl">{block.subheading}</p>
+          <p
+            className="mt-5 max-w-2xl text-lg text-muted motion-safe:animate-rise lg:text-xl"
+            style={{ animationDelay: '120ms' }}
+          >
+            {block.subheading}
+          </p>
         )}
       </div>
     </section>

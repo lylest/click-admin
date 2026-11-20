@@ -355,7 +355,7 @@ export const CardsBlock: Block = {
       relationTo: 'media',
       admin: {
         description:
-          'Optional wide background photo (landscape, at least 2000px wide). It fades into dark teal behind the text.',
+          'Optional wide background photo (landscape, at least 2000px wide). It fades into dark blue behind the text.',
       },
     },
     {

@@ -13,9 +13,9 @@ import { asMedia, cn, type BlockOf } from '@/lib/utils'
 /**
  * "Who we serve" (client reference, three screenshots):
  * 1. The section opens on a large, clear, full-width photo.
- * 2. While it is pinned, scrolling zooms the photo in, tints it teal, and the
+ * 2. While it is pinned, scrolling zooms the photo in, tints it blue, and the
  *    content (centred heading, intro, icon columns, button) fades in over it.
- * 3. Solid teal continues below.
+ * 3. Solid blue continues below.
  * Pinning and scroll effects are desktop only (lg). On phones the photo sits on
  * top and the content follows. Reduced motion shows the final state.
  */
@@ -78,9 +78,9 @@ export function CardsBlock({ block }: { block: BlockOf<'cards'> }) {
               className="absolute inset-0 bg-primary opacity-40 lg:opacity-30"
               style={animate ? { opacity: tint } : undefined}
             />
-            {/* Desktop: green that rises from the bottom; solid at the bottom, see-through at the top */}
+            {/* Desktop: blue that rises from the bottom; solid at the bottom, see-through at the top */}
             <motion.div
-              className="absolute inset-0 hidden bg-[linear-gradient(to_bottom,rgb(2_88_100/0)_0%,rgb(2_88_100/0.6)_28%,rgb(2_88_100/0.9)_52%,rgb(2_88_100)_74%)] lg:block"
+              className="absolute inset-0 hidden bg-[linear-gradient(to_bottom,rgb(0_112_192/0)_0%,rgb(0_112_192/0.6)_28%,rgb(0_112_192/0.9)_52%,rgb(0_112_192)_74%)] lg:block"
               style={animate ? { y: riseY } : undefined}
             />
           </div>

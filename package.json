@@ -31,6 +31,7 @@
     "lucide-react": "^1.74.0",
     "motion": "^14.14.0",
     "next": "16.4.6",
+    "nodemailer": "10.6.0",
     "payload": "3.94.0",
     "react": "19.2.9",
     "react-dom": "19.2.9",

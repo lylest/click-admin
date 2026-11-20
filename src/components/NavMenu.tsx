@@ -7,10 +7,19 @@ import { useState } from 'react'
 
 import type { Header } from '@/payload-types'
 import { cn } from '@/lib/utils'
+import { TopLink } from './TopLink'
 
 type Item = NonNullable<Header['items']>[number]
 
-export function NavMenu({ items, cta }: { items: Item[]; cta?: Header['ctaButton'] }) {
+export function NavMenu({
+  items,
+  cta,
+  portalUrl,
+}: {
+  items: Item[]
+  cta?: Header['ctaButton']
+  portalUrl: string
+}) {
   const [open, setOpen] = useState(false)
   const pathname = usePathname()
 
@@ -52,7 +61,7 @@ export function NavMenu({ items, cta }: { items: Item[]; cta?: Header['ctaButton
               </div>
             </div>
           ) : (
-            <Link
+            <TopLink
               key={item.id ?? item.label}
               href={item.url ?? '/'}
               className={cn(
@@ -61,12 +70,18 @@ export function NavMenu({ items, cta }: { items: Item[]; cta?: Header['ctaButton
               )}
             >
               {item.label}
-            </Link>
+            </TopLink>
           ),
         )}
       </nav>
 
       <div className="flex items-center gap-2">
+        <a
+          href={portalUrl}
+          className="hidden rounded-lg border border-line px-4 py-2.5 font-semibold text-ink transition-colors hover:border-ink sm:inline-flex"
+        >
+          Click Meter login
+        </a>
         {cta?.label && cta.url && (
           <Link
             href={cta.url}
@@ -98,13 +113,13 @@ export function NavMenu({ items, cta }: { items: Item[]; cta?: Header['ctaButton
             {items.map((item) => (
               <li key={item.id ?? item.label}>
                 {item.url ? (
-                  <Link
+                  <TopLink
                     href={item.url}
                     onClick={() => setOpen(false)}
                     className="block py-3 text-lg font-medium text-ink"
                   >
                     {item.label}
-                  </Link>
+                  </TopLink>
                 ) : (
                   <p className="pt-3 text-sm font-semibold uppercase tracking-widest text-muted">
                     {item.label}
@@ -122,8 +137,17 @@ export function NavMenu({ items, cta }: { items: Item[]; cta?: Header['ctaButton
                 ))}
               </li>
             ))}
+            <li className="pt-4">
+              <a
+                href={portalUrl}
+                onClick={() => setOpen(false)}
+                className="flex justify-center rounded-lg border border-line px-5 py-3 font-semibold text-ink"
+              >
+                Click Meter login
+              </a>
+            </li>
             {cta?.label && cta.url && (
-              <li className="pt-4">
+              <li className="pt-3">
                 <Link
                   href={cta.url}
                   onClick={() => setOpen(false)}

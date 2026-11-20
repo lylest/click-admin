@@ -2,21 +2,22 @@
 @plugin '@tailwindcss/typography';
 
 /*
- * Click Group design tokens. Brand teal comes from the Click Meter admin;
+ * Click Group design tokens. Brand blues come from the company letterhead
+ * (#0070C0 rule, #2E75B6 company name, #A0C7E7 rule highlight);
  * typography follows the Astroship reference: Bricolage Grotesque with Inter
  * as fallback (both loaded with next/font in layout.tsx).
  */
 @theme {
-  --color-primary: #025864;
-  --color-primary-strong: #013d46;
-  --color-accent: #00b4a0;
-  --color-mint: #8fe8da;
+  --color-primary: #0070c0;
+  --color-primary-strong: #00589a;
+  --color-accent: #4da3e0;
+  --color-mint: #a0c7e7;
   --color-ink: #0b1215;
   --color-muted: #52606d;
   --color-line: #e5e9ec;
-  --color-tint: #f1f8f8;
-  --color-tint-strong: #d5eeee;
-  --color-night: #01262c;
+  --color-tint: #f0f6fc;
+  --color-tint-strong: #d6e7f5;
+  --color-night: #04193a;
   --color-cream: #faf7f2;
 
   /* shadcn/ui token aliases, mapped onto the brand palette. */
@@ -44,6 +45,19 @@
     }
     to {
       transform: scaleX(1);
+    }
+  }
+  /* Hero text reveal: pure CSS so it plays on first paint, before JavaScript.
+     Stagger with style={{ animationDelay }}; photos in heroes never animate. */
+  --animate-rise: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(1.25rem);
+    }
+    to {
+      opacity: 1;
+      transform: none;
     }
   }
   @keyframes accordion-up {

@@ -10,6 +10,7 @@ import { Media } from './collections/Media'
 import { Pages } from './collections/Pages'
 import { Posts } from './collections/Posts'
 import { Products } from './collections/Products'
+import { Tickets } from './collections/Tickets'
 import { Users } from './collections/Users'
 import { Footer } from './globals/Footer'
 import { SiteText } from './globals/SiteText'
@@ -31,7 +32,7 @@ export default buildConfig({
     meta: { titleSuffix: ' — Click Group CMS' },
     importMap: { baseDir: path.resolve(dirname) },
   },
-  collections: [Pages, Products, Posts, Media, Inquiries, Users],
+  collections: [Pages, Products, Posts, Media, Inquiries, Tickets, Users],
   globals: [Settings, Header, Footer, SiteText],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',

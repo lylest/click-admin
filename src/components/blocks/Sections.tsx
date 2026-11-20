@@ -36,7 +36,7 @@ export async function LogosBlock({ block }: { block: BlockOf<'logos'> }) {
               <Media
                 resource={logo.image}
                 sizes="160px"
-                className="h-9 w-auto opacity-70 grayscale transition hover:opacity-100 hover:grayscale-0"
+                className="h-9 w-auto"
               />
             ) : (
               <span className="text-lg font-bold text-muted/70">{logo.name}</span>

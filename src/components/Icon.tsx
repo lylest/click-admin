@@ -54,7 +54,7 @@ export function Icon({ name, className }: { name?: string | null; className?: st
   return <Component aria-hidden className={className} strokeWidth={1.75} />
 }
 
-/** Icon in a soft teal tile, used on feature and card grids. */
+/** Icon in a soft blue tile, used on feature and card grids. */
 export function IconTile({ name, dark = false }: { name?: string | null; dark?: boolean }) {
   return (
     <span

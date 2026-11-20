@@ -13,7 +13,7 @@ export const settings = {
   contactEmail: 'info@clickgroup.co.tz',
   phone: '[+255 XXX XXX XXX]',
   whatsapp: '',
-  address: '[Street / P.O. Box]\nIfakara, Morogoro, Tanzania',
+  address: 'Goba, Dar es Salaam, Tanzania',
   socialLinks: [],
   announcementBar: {
     enabled: false,
@@ -369,8 +369,8 @@ export const pages = (productIds: Id[], media: MediaIds) => [
           },
           {
             icon: 'map-pin',
-            title: 'Based in Ifakara',
-            text: 'Our head office is in Ifakara, Morogoro, Tanzania. Get in touch to arrange a demo or a quote for your property or hospital.',
+            title: 'Based in Dar es Salaam',
+            text: 'Our head office is in Goba, Dar es Salaam, Tanzania. Get in touch to arrange a demo or a quote for your property or hospital.',
           },
         ],
       },
@@ -512,7 +512,8 @@ export const pages = (productIds: Id[], media: MediaIds) => [
           },
           {
             question: 'Where is Click Group based?',
-            answer: 'In Ifakara, Tanzania. We design, install and support our systems ourselves.',
+            answer:
+              'Our head office is in Goba, Dar es Salaam, Tanzania. We design, install and support our systems ourselves.',
           },
           {
             question: 'How do I get a quote?',
@@ -616,7 +617,7 @@ export const pages = (productIds: Id[], media: MediaIds) => [
         offices: [
           {
             name: 'Head Office',
-            address: 'Ifakara, Morogoro, Tanzania',
+            address: 'Goba, Dar es Salaam, Tanzania',
             phone: '[+255 XXX XXX XXX]',
             email: 'info@clickgroup.co.tz',
             hours: 'Mon–Fri 08:00–17:00',

@@ -72,6 +72,7 @@ export interface Config {
     posts: Post;
     media: Media;
     inquiries: Inquiry;
+    tickets: Ticket;
     users: User;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
@@ -85,6 +86,7 @@ export interface Config {
     posts: PostsSelect<false> | PostsSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     inquiries: InquiriesSelect<false> | InquiriesSelect<true>;
+    tickets: TicketsSelect<false> | TicketsSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
@@ -553,7 +555,7 @@ export interface Page {
             heading?: string | null;
             intro?: string | null;
             /**
-             * Optional wide background photo (landscape, at least 2000px wide). It fades into dark teal behind the text.
+             * Optional wide background photo (landscape, at least 2000px wide). It fades into dark blue behind the text.
              */
             image?: (number | null) | Media;
             /**
@@ -1051,6 +1053,30 @@ export interface Inquiry {
   createdAt: string;
 }
 /**
+ * Support requests from the customer care form. Each one is also emailed to customer care.
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "tickets".
+ */
+export interface Ticket {
+  id: number;
+  ticket: string;
+  subject: string;
+  description: string;
+  product?: string | null;
+  account?: string | null;
+  name: string;
+  phone?: string | null;
+  email?: string | null;
+  status?: ('open' | 'in-progress' | 'resolved') | null;
+  /**
+   * Unticked means the email failed: handle this ticket from here.
+   */
+  emailed?: boolean | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users".
  */
@@ -1120,6 +1146,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'inquiries';
         value: number | Inquiry;
+      } | null)
+    | ({
+        relationTo: 'tickets';
+        value: number | Ticket;
       } | null)
     | ({
         relationTo: 'users';
@@ -1745,6 +1775,24 @@ export interface InquiriesSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "tickets_select".
+ */
+export interface TicketsSelect<T extends boolean = true> {
+  ticket?: T;
+  subject?: T;
+  description?: T;
+  product?: T;
+  account?: T;
+  name?: T;
+  phone?: T;
+  email?: T;
+  status?: T;
+  emailed?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users_select".
  */
 export interface UsersSelect<T extends boolean = true> {
@@ -1970,6 +2018,24 @@ export interface SiteText {
     errorMessage?: string | null;
     errorServer?: string | null;
   };
+  ticket?: {
+    heading?: string | null;
+    intro?: string | null;
+    email?: string | null;
+    phone?: string | null;
+    product?: string | null;
+    otherProduct?: string | null;
+    account?: string | null;
+    subject?: string | null;
+    description?: string | null;
+    send?: string | null;
+    sending?: string | null;
+    success?: string | null;
+    successCopy?: string | null;
+    errorSubject?: string | null;
+    errorDescription?: string | null;
+    errorBusy?: string | null;
+  };
   notFound?: {
     heading?: string | null;
     text?: string | null;
@@ -2130,6 +2196,26 @@ export interface SiteTextSelect<T extends boolean = true> {
         errorEmail?: T;
         errorMessage?: T;
         errorServer?: T;
+      };
+  ticket?:
+    | T
+    | {
+        heading?: T;
+        intro?: T;
+        email?: T;
+        phone?: T;
+        product?: T;
+        otherProduct?: T;
+        account?: T;
+        subject?: T;
+        description?: T;
+        send?: T;
+        sending?: T;
+        success?: T;
+        successCopy?: T;
+        errorSubject?: T;
+        errorDescription?: T;
+        errorBusy?: T;
       };
   notFound?:
     | T

@@ -5,14 +5,7 @@ import { notFound } from 'next/navigation'
 
 import { Button } from '@/components/Button'
 import { Media } from '@/components/Media'
-import {
-  Parallax,
-  Reveal,
-  RevealImage,
-  SplitHeading,
-  Stagger,
-  StaggerItem,
-} from '@/components/motion'
+import { Reveal, RevealImage, SplitHeading, Stagger, StaggerItem } from '@/components/motion'
 import { RichText } from '@/components/RichText'
 import { PostCard } from '@/components/blocks/News'
 import { FaqList } from '@/components/blocks/Sections'
@@ -56,7 +49,7 @@ function ProductHero({
           )}
         >
           <div>
-            <nav aria-label="Breadcrumb" className="text-sm text-muted">
+            <nav aria-label="Breadcrumb" className="text-sm text-muted motion-safe:animate-rise">
               <Link href="/#solutions" className="hover:text-ink">
                 {t.product.breadcrumb}
               </Link>
@@ -65,13 +58,22 @@ function ProductHero({
               </span>
               <span className="text-ink">{product.name}</span>
             </nav>
-            <h1 className="mt-5 text-[2.6rem] font-semibold leading-[1.06] tracking-tight text-ink sm:text-6xl xl:text-7xl">
+            <h1
+              className="mt-5 text-[2.6rem] font-semibold leading-[1.06] tracking-tight text-ink motion-safe:animate-rise sm:text-6xl xl:text-7xl"
+              style={{ animationDelay: '80ms' }}
+            >
               {product.tagline || product.name}
             </h1>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-ink/70 xl:text-xl">
+            <p
+              className="mt-6 max-w-xl text-lg leading-relaxed text-ink/70 motion-safe:animate-rise xl:text-xl"
+              style={{ animationDelay: '200ms' }}
+            >
               {product.shortDescription}
             </p>
-            <div className="mt-9 flex flex-wrap items-center gap-3">
+            <div
+              className="mt-9 flex flex-wrap items-center gap-3 motion-safe:animate-rise"
+              style={{ animationDelay: '320ms' }}
+            >
               <Link
                 href={contactUrl}
                 className="inline-flex items-center gap-4 rounded-lg bg-ink py-1.5 pl-5 pr-1.5 font-semibold text-white transition-colors hover:bg-primary"
@@ -97,14 +99,12 @@ function ProductHero({
           {hasPhoto && (
             <div className={cn('relative', hasSecond && 'pb-10 pl-10 sm:pb-14 sm:pl-14')}>
               <div className="relative aspect-[4/3.4] overflow-hidden rounded-3xl bg-tint shadow-xl shadow-ink/10">
-                <Parallax>
-                  <Media
-                    resource={product.heroImage}
-                    fill
-                    priority
-                    sizes="(min-width: 1024px) 45vw, 100vw"
-                  />
-                </Parallax>
+                <Media
+                  resource={product.heroImage}
+                  fill
+                  priority
+                  sizes="(min-width: 1024px) 45vw, 100vw"
+                />
               </div>
               {hasSecond && (
                 <div className="absolute bottom-0 left-0 aspect-square w-[38%] overflow-hidden rounded-2xl border-[6px] border-cream bg-white shadow-xl shadow-ink/15">

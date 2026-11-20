@@ -26,6 +26,13 @@ services:
     environment:
       DATABASE_URL: file:/app/data/clickgroup.db
       PAYLOAD_SERVER_URL: ''
+      # Customer-care tickets are emailed through the host's Exim on the
+      # andromega_edge bridge (no login, same relay as Click Meter). The sender
+      # must be a real mailbox: Exim verifies it.
+      SMTP_HOST: ${SMTP_HOST:-172.28.0.1}
+      SMTP_PORT: ${SMTP_PORT:-587}
+      SMTP_TLS_SERVERNAME: ${SMTP_TLS_SERVERNAME:-mx.clickgroup.co.tz}
+      MAIL_FROM: ${MAIL_FROM:-Click Group Customer Care <support@clickgroup.co.tz>}
     volumes:
       - data:/app/data
       - media:/app/media

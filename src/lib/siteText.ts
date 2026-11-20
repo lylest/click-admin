@@ -62,6 +62,36 @@ export const SITE_TEXT = {
       ],
     },
   },
+  ticket: {
+    label: 'Customer care (ticket form)',
+    fields: {
+      heading: ['Section heading', 'Customer care'],
+      intro: [
+        'Section intro',
+        'Already a customer? Report a problem with your meter, lift system or account and our support team will follow up. You get a ticket number to quote when you call or write.',
+      ],
+      email: ['Customer care email (shown and receives tickets)', 'support@clickgroup.co.tz'],
+      phone: ['Customer care phone (hidden when empty)', ''],
+      product: ['Product dropdown', 'Product'],
+      otherProduct: ['Last dropdown option', 'Other'],
+      account: ['Meter or account number field', 'Meter or account number'],
+      subject: ['Subject field', 'Subject'],
+      description: ['Description field', 'Describe the problem'],
+      send: ['Submit button', 'Submit ticket'],
+      sending: ['Submit button while sending', 'Submitting…'],
+      success: [
+        'Success message ({ticket} is the ticket number)',
+        'Ticket {ticket} received. Our customer care team will contact you soon.',
+      ],
+      successCopy: ['Added when a copy was emailed ({email})', 'A copy has been sent to {email}.'],
+      errorSubject: ['Error: missing subject', 'Please add a short subject.'],
+      errorDescription: ['Error: missing description', 'Please describe the problem.'],
+      errorBusy: [
+        'Error: too many tickets from one visitor',
+        'You have sent several tickets in a short time. Please wait a while or email us directly.',
+      ],
+    },
+  },
   notFound: {
     label: 'Page not found (404)',
     fields: {

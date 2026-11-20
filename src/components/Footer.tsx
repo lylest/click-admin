@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { TopLink } from './TopLink'
 import {
   siFacebook,
   siInstagram,
@@ -81,9 +82,9 @@ export async function Footer() {
       <div className="border-t border-white/15">
         <div className="wrap grid lg:grid-cols-12">
           <div className="py-14 lg:col-span-5 lg:border-r lg:border-white/15 lg:py-20 lg:pr-16">
-            <Link href="/" aria-label={`${settings.siteName} home`} className="inline-block">
+            <TopLink href="/" aria-label={`${settings.siteName} home`} className="inline-block">
               <Logo name={settings.siteName} logo={settings.logoDark} dark />
-            </Link>
+            </TopLink>
             {footer.about && (
               <p className="mt-6 max-w-sm text-lg leading-relaxed text-white/80">{footer.about}</p>
             )}
@@ -124,12 +125,12 @@ export async function Footer() {
                   <ul className="mt-6 space-y-4">
                     {links.map((link) => (
                       <li key={link.id ?? link.url}>
-                        <Link
+                        <TopLink
                           href={link.url}
                           className="text-lg text-white/80 transition-colors hover:text-white"
                         >
                           {link.label}
-                        </Link>
+                        </TopLink>
                       </li>
                     ))}
                   </ul>

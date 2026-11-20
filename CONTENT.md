@@ -18,7 +18,7 @@
 | | |
 |---|---|
 | Current name | **Click Group** |
-| Headquarters | Ifakara, Morogoro, Tanzania |
+| Headquarters | Goba, Dar es Salaam, Tanzania |
 | Domain | clickgroup.co.tz |
 | Status | Private, accelerator/incubator backed |
 | Industries | Machinery (B2B), Medical supplies, Utility technology |
@@ -49,7 +49,7 @@
 - **Tagline:** Engineering practical solutions for Africa's hospitals and homes.
 - **Email:** info@clickgroup.co.tz
 - **Phone / WhatsApp:** [+255 XXX XXX XXX]
-- **Address:** [Street / P.O. Box], Ifakara, Morogoro, Tanzania
+- **Address:** Goba, Dar es Salaam, Tanzania
 - **Announcement bar:** *off* — sample text: "Click Meter now supports water
   and gas meters → Learn more"
 
@@ -142,7 +142,7 @@ the first starts open, one open at a time).
   2. **Click Meter:** Prepaid meters for electricity, water and gas, one per
      rental unit. Tenants pay with mobile money and get their token by SMS.
      Landlords see every payment online.
-  3. **Based in Ifakara:** Our head office is in Ifakara, Morogoro, Tanzania.
+  3. **Based in Dar es Salaam:** Our head office is in Goba, Dar es Salaam, Tanzania.
      Get in touch to arrange a demo or a quote for your property or hospital.
 
 ### 3.4 Our products (Photo grid + slideshow block)
@@ -415,7 +415,7 @@ text-only cards and no panels.
   business day.
 - **Form fields:** Name, Phone, Email, Organization, I'm interested in
   (Click Meter / Mortuary Lift System / Partnership / Other), Message.
-- **Office:** Head Office — Ifakara, Morogoro, Tanzania · [phone] ·
+- **Office:** Head Office — Goba, Dar es Salaam, Tanzania · [phone] ·
   info@clickgroup.co.tz · Mon–Fri 08:00–17:00
 - **Success message:** Thank you! We've received your message and will be in
   touch soon.
