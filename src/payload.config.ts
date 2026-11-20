@@ -17,6 +17,7 @@ import { SiteText } from './globals/SiteText'
 import { Header } from './globals/Header'
 import { Settings } from './globals/Settings'
 import { migrations } from './migrations'
+import { trimCollectionText, trimGlobalText } from './hooks/trimText'
 import { seedIfEmpty } from './seed'
 
 const filename = fileURLToPath(import.meta.url)
@@ -32,8 +33,20 @@ export default buildConfig({
     meta: { titleSuffix: ' — Click Group CMS' },
     importMap: { baseDir: path.resolve(dirname) },
   },
-  collections: [Pages, Products, Posts, Media, Inquiries, Tickets, Users],
-  globals: [Settings, Header, Footer, SiteText],
+  // Editable site content trims pasted whitespace on save. Form submissions and users are left as sent.
+  collections: [
+    ...[Pages, Products, Posts, Media].map((c) => ({
+      ...c,
+      hooks: { ...c.hooks, beforeValidate: [trimCollectionText, ...(c.hooks?.beforeValidate ?? [])] },
+    })),
+    Inquiries,
+    Tickets,
+    Users,
+  ],
+  globals: [Settings, Header, Footer, SiteText].map((g) => ({
+    ...g,
+    hooks: { ...g.hooks, beforeValidate: [trimGlobalText, ...(g.hooks?.beforeValidate ?? [])] },
+  })),
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: { outputFile: path.resolve(dirname, 'payload-types.ts') },
