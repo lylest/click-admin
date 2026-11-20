@@ -37,7 +37,15 @@ export const Footer: GlobalConfig = {
       type: 'array',
       fields: [
         { name: 'title', type: 'text', required: true },
-        { name: 'links', type: 'array', fields: [linkRow] },
+        {
+          name: 'links',
+          type: 'array',
+          admin: {
+            description:
+              'If this column has a link to a solution (/solutions/...), every solution is listed automatically, in the Solutions order.',
+          },
+          fields: [linkRow],
+        },
       ],
     },
     {

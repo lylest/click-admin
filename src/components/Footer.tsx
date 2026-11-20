@@ -10,7 +10,8 @@ import {
   type SimpleIcon,
 } from 'simple-icons'
 
-import { getFooter, getSettings, getSiteText } from '@/lib/payload'
+import { getFooter, getProducts, getSettings, getSiteText } from '@/lib/payload'
+import { withSolutions } from '@/lib/solutions'
 import { isPlaceholder, realLines } from '@/lib/utils'
 import { FooterCta } from './FooterCta'
 import { Logo } from './Logo'
@@ -47,7 +48,12 @@ function SocialIcon({ icon, label }: { icon?: SimpleIcon; label: string }) {
  * separated by a vertical rule. Placeholder contact details are never shown.
  */
 export async function Footer() {
-  const [footer, settings, t] = await Promise.all([getFooter(), getSettings(), getSiteText()])
+  const [footer, settings, t, products] = await Promise.all([
+    getFooter(),
+    getSettings(),
+    getSiteText(),
+    getProducts(),
+  ])
   const year = new Date().getFullYear()
 
   const phone = isPlaceholder(settings.phone) ? null : settings.phone
@@ -115,7 +121,8 @@ export async function Footer() {
 
           <div className="grid grid-cols-2 gap-x-8 gap-y-12 border-t border-white/15 py-14 sm:grid-cols-3 lg:col-span-7 lg:border-t-0 lg:py-20 lg:pl-16 xl:pl-24">
             {footer.columns?.map((column) => {
-              const links = (column.links ?? []).filter(
+              // A column with solution links lists every solution in the CMS.
+              const links = withSolutions(column.links ?? [], products).filter(
                 (l) => l.url && !isPlaceholder(l.url) && l.url !== '#',
               )
               if (!links.length) return null

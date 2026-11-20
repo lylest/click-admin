@@ -1,6 +1,7 @@
 import Link from 'next/link'
 
-import { getHeader, getSettings } from '@/lib/payload'
+import { getHeader, getProducts, getSettings } from '@/lib/payload'
+import { withSolutions } from '@/lib/solutions'
 import { Logo } from './Logo'
 import { NavMenu } from './NavMenu'
 import { TopLink } from './TopLink'
@@ -10,7 +11,12 @@ import { TopLink } from './TopLink'
 const PORTAL_URL = process.env.PORTAL_URL || 'https://app.clickgroup.co.tz/login'
 
 export async function Header() {
-  const [header, settings] = await Promise.all([getHeader(), getSettings()])
+  const [header, settings, products] = await Promise.all([getHeader(), getSettings(), getProducts()])
+  // Every solution in the CMS appears in the Solutions dropdown, even if nobody adds it here by hand.
+  const items = (header.items ?? []).map((item) => ({
+    ...item,
+    children: item.children ? withSolutions(item.children, products) : item.children,
+  }))
   const bar = settings.announcementBar
 
   return (
@@ -31,7 +37,7 @@ export async function Header() {
           <TopLink href="/" aria-label={`${settings.siteName} home`}>
             <Logo name={settings.siteName} logo={settings.logo} />
           </TopLink>
-          <NavMenu items={header.items ?? []} cta={header.ctaButton} portalUrl={PORTAL_URL} />
+          <NavMenu items={items} cta={header.ctaButton} portalUrl={PORTAL_URL} />
         </div>
       </header>
     </>

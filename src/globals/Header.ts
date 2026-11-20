@@ -23,6 +23,10 @@ export const Header: GlobalConfig = {
         {
           name: 'children',
           type: 'array',
+          admin: {
+            description:
+              'If this list has a link to a solution (/solutions/...), every solution is listed automatically, in the Solutions order. Add one here only to change its label or description.',
+          },
           fields: [
             {
               type: 'row',
