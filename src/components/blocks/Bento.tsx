@@ -5,6 +5,8 @@ import { Media } from '../Media'
 import { Reveal, RevealImage, Stagger, StaggerItem } from '../motion'
 import { SectionHeading } from '../SectionHeading'
 import { SolutionsCarousel } from './SolutionsCarousel'
+import { getProducts } from '@/lib/payload'
+import { solutionSlides } from '@/lib/solutions'
 import { asMedia, cn, type BlockOf } from '@/lib/utils'
 
 type Card = NonNullable<BlockOf<'bento'>['cards']>[number]
@@ -70,8 +72,8 @@ function BentoCard({ card }: { card: Card }) {
   )
 }
 
-export function BentoBlock({ block }: { block: BlockOf<'bento'> }) {
-  const slides = (block.slides ?? []).filter((s) => asMedia(s.image))
+export async function BentoBlock({ block }: { block: BlockOf<'bento'> }) {
+  const slides = solutionSlides(block.slides ?? [], await getProducts()).filter((s) => asMedia(s.image))
   const cards = block.cards ?? []
 
   return (

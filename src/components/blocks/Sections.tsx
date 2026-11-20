@@ -2,7 +2,6 @@ import { ArrowRight, ArrowUpRight, Quote } from 'lucide-react'
 import Link from 'next/link'
 
 import { CmsButton } from '../Button'
-import { Icon } from '../Icon'
 import { Media } from '../Media'
 import { RichText } from '../RichText'
 import { Eyebrow, SectionHeading } from '../SectionHeading'
@@ -102,34 +101,28 @@ export async function ProductCardsBlock({ block }: { block: BlockOf<'productCard
     <section id={block.anchor ?? undefined} className="section bg-tint">
       <div className="wrap">
         <SectionHeading heading={block.heading} intro={block.intro} />
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {products.map((product) => (
             <Link
               key={product.id}
               href={`/solutions/${product.slug}`}
-              className="group flex flex-col overflow-hidden rounded-3xl border border-line bg-white transition hover:-translate-y-1 hover:shadow-2xl hover:shadow-primary/10"
+              className="group flex flex-col overflow-hidden rounded-3xl border border-line bg-white transition-colors hover:border-primary"
             >
-              {asMedia(product.heroImage) ? (
+              {/* A solution without a photo gets a text-only card, never a stand-in graphic. */}
+              {asMedia(product.heroImage) && (
                 <div className="relative aspect-[16/9]">
-                  <Media resource={product.heroImage} fill sizes="(min-width: 768px) 50vw, 100vw" />
-                </div>
-              ) : (
-                <div className="flex aspect-[16/9] items-center justify-center bg-gradient-to-br from-primary to-night">
-                  <Icon name={product.icon} className="size-20 text-white/90" />
+                  <Media resource={product.heroImage} fill sizes="(min-width: 1280px) 33vw, (min-width: 768px) 50vw, 100vw" />
                 </div>
               )}
               <div className="flex flex-1 flex-col p-8">
                 {product.tagline && (
                   <p className="text-sm font-semibold text-primary">{product.tagline}</p>
                 )}
-                <h3 className="mt-1 text-2xl text-ink">{product.name}</h3>
+                <h3 className="mt-1 text-2xl text-ink">{product.name.trim()}</h3>
                 <p className="mt-3 flex-1 text-muted">{product.shortDescription}</p>
                 <span className="mt-6 inline-flex items-center gap-2 font-semibold text-ink">
                   Learn more
-                  <ArrowRight
-                    className="size-4 transition-transform group-hover:translate-x-1"
-                    aria-hidden
-                  />
+                  <ArrowRight className="size-4" aria-hidden />
                 </span>
               </div>
             </Link>
