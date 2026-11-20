@@ -25,7 +25,10 @@
 
 **Product lines**
 
-1. **Mortuary Lift System** (our first product) — remote-controlled
+1. **Medical Solutions** (our first product; renamed from "Medical Solutions"
+   on 2026-11-20 at the client's request: the word "mortuary" appears only
+   inside the product page and news article, never in nav, home, contact or
+   SEO copy) — remote-controlled
    hydraulic lift for moving bodies in morgues. Corrosion-resistant,
    sanitizable materials; precise vertical and horizontal movement. Removes
    manual lifting, reducing musculoskeletal injuries among hospital and
@@ -66,7 +69,7 @@
 - About → `/about`
 - Solutions ▾
   - Click Meter → `/solutions/click-meter`
-  - Mortuary Lift System → `/solutions/mortuary-lift`
+  - Medical Solutions → `/solutions/medical-solutions`
 - News → `/news`
 - Contact → `/contact`
 - **CTA button:** "Get a Quote" → `/contact`
@@ -97,7 +100,7 @@ labels), `stat` (value, label).
 - **Points under the button:**
   - Click Meter → `/solutions/click-meter`: Tenants buy electricity, water and
     gas tokens with mobile money.
-  - Mortuary Lift System → `/solutions/mortuary-lift`: Staff move bodies by
+  - Medical Solutions → `/solutions/medical-solutions`: Staff guide the load by
     remote control instead of lifting by hand.
 - **Photo labels:** *(none)*
 - **Main photo** (back, tilted +4°): health worker in teal scrubs
@@ -129,15 +132,15 @@ the first starts open, one open at a time).
 
 - **Heading:** *(grey)* We started with one problem in hospitals. *(dark)* Now
   we solve two.
-- **Body:** Our first product came from one problem: mortuary staff injuring
-  their backs lifting bodies by hand. We then applied the same approach to
+- **Body:** Our first product came from one problem: hospital staff injuring
+  their backs lifting by hand. We then applied the same approach to
   utility billing, where landlords chase payments and tenants dispute their
   bills.
 - **Link card:** "Learn more about our story" / How Click Group started →
   `/about` (thumbnail: hero doctor photo until a team photo exists)
 - **Accordion**
-  1. **Mortuary Lift System:** A remote-controlled hydraulic lift that moves
-     bodies up, down and across, so staff no longer lift by hand. Built from
+  1. **Medical Solutions:** A remote-controlled hydraulic lift that moves
+     loads up, down and across, so staff no longer lift by hand. Built from
      corrosion-resistant materials that are easy to clean.
   2. **Click Meter:** Prepaid meters for electricity, water and gas, one per
      rental unit. Tenants pay with mobile money and get their token by SMS.
@@ -154,14 +157,14 @@ label, value, text, image, button).
 **Default content**
 
 - **Heading:** Our products
-- **Intro:** Click Meter for property owners and tenants. The Mortuary Lift
-  System for hospitals.
+- **Intro:** Click Meter for property owners and tenants. Medical Solutions
+  for hospitals.
 - **Slide 1:** tenant at home photo (`solutions-tenant-home.jpg`). Click Meter:
   Prepaid electricity, water and gas for rental homes. Tenants top up with
   mobile money and get their token by SMS. → Explore Click Meter
 - **Slide 2:** *(placeholder: hero doctor photo, needs a real healthcare or
-  lift photo)* Mortuary Lift System: A remote-controlled hydraulic lift, so
-  hospital staff never have to lift a body by hand. → Explore the lift
+  lift photo)* Medical Solutions: A remote-controlled hydraulic lift, so
+  hospital staff never have to do heavy lifting by hand. → Explore the lift
 - **Fact card:** One meter platform / Electricity, water and gas / Each rental
   unit gets its own prepaid meter, topped up with mobile money.
 - **Photo card:** apartment building (`solutions-apartments.jpg`)
@@ -194,21 +197,21 @@ smaller on an angular light-tinted panel whose colour and shape change per step.
     landlord with tablet
 - **CTA:** Request a demo → `/contact?product=click-meter`
 
-### 3.6 Product spotlight — Mortuary Lift System
+### 3.6 Product spotlight — Medical Solutions
 
 Same scroll-step design as Click Meter (3.5), mirrored: photo on the left on the
 coloured panel (its colours start at a different point so the two sections do
 not match), heading, text and the five benefits on the right.
 
 - **Heading:** No more lifting by hand
-- **Body:** Moving bodies manually is one of the leading causes of back injury
-  among mortuary and nursing staff. Our hydraulic lift does the heavy work while
+- **Body:** Lifting by hand is one of the leading causes of back injury
+  among hospital and nursing staff. Our hydraulic lift does the heavy work while
   staff guide it by remote control.
 - **Benefits:** Remote-controlled; Hygienic by design; Fewer injuries; Lower
   long-term cost; Dignified handling (texts from the product).
 - **Photo:** stand-in (health worker). Wanted: one photo per benefit, ideally
   of the real lift; add them per feature in the CMS.
-- **CTA:** Request a quote → `/contact?product=mortuary-lift`
+- **CTA:** Request a quote → `/contact?product=medical-solutions`
 
 ### 3.7 How it works (removed)
 
@@ -224,8 +227,8 @@ placeholder and is hidden on the site; if no numbers are real, the row is hidden
 
 - **Heading:** Built around the people who use it
 - **Text:** Tenants who want to pay only for what they use. Landlords who want
-  every payment recorded. Mortuary staff who should never have to lift a body
-  by hand. We design, install and support every system ourselves, from our base
+  every payment recorded. Hospital staff who should never have to do heavy
+  lifting by hand. We design, install and support every system ourselves, from our base
   in Ifakara.
 - **Button:** More about us → `/about`
 - **Photo:** man in an office (`impact-team-office.jpg`); swap for a real team photo.
@@ -249,8 +252,8 @@ below, no scroll effects. **CMS fields:** `heading`, `intro`, `image` (wide,
     prepaid meter. See each payment online and recover debts without collecting cash.
   - Tenants (home icon): Pay only for what you use. Top up electricity, water or
     gas from your phone whenever you need to.
-  - Hospitals and health centres (hospital icon): A remote-controlled lift for
-    the mortuary, so staff no longer move bodies by hand.
+  - Hospitals and health centres (hospital icon): A remote-controlled hydraulic
+    lift, so staff no longer do the heavy lifting by hand.
 - **Button:** Talk to us → `/contact`
 - **Photo:** wide crop of the kitchen photo (`serve-kitchen-wide.jpg`), a stand-in.
   Replace with a wide group photo.
@@ -263,7 +266,7 @@ below, no scroll effects. **CMS fields:** `heading`, `intro`, `image` (wide,
 **Default content** — ⚠ sample only; replace with real, approved quotes
 
 - "[Quote from a landlord using Click Meter.]" — [Name], Landlord, [Town]
-- "[Quote from mortuary/nursing staff using the lift.]" — [Name], [Role],
+- "[Quote from hospital or nursing staff using the lift.]" — [Name], [Role],
   [Hospital]
 
 ### 3.11 Latest news
@@ -279,8 +282,8 @@ Cards show author and date only. **CMS fields:** `heading`, `intro`, `count`
   - Introducing Click Meter: prepaid utilities for rental properties (apartment tower)
   - How tenants buy a token with mobile money (hands with phone)
   - What landlords see on the Click Meter dashboard (man with laptop)
-  - Why manual lifting in mortuaries has to end (health worker; swap for a real
-    mortuary or lift photo when available)
+  - Why manual lifting in hospitals has to end (health worker; swap for a real
+    lift photo when available)
 
 ### 3.11b FAQ
 
@@ -290,11 +293,11 @@ into minus). Same layout on product pages. Answers in [brackets] are hidden.
 **CMS fields:** `heading`, `intro`, `cta`, `items` (question, answer).
 
 - **Heading:** Frequently asked questions
-- **Intro:** Short answers about Click Meter and the Mortuary Lift System. If
+- **Intro:** Short answers about Click Meter and the Medical Solutions. If
   your question is not here, ask us directly.
 - **Button:** Ask a question → `/contact`
 - **Questions:** how tenants buy tokens; several properties in one account;
-  tenant debts; what the Mortuary Lift System is; where Click Group is based;
+  tenant debts; what the Medical Solutions lift is; where Click Group is based;
   how to get a quote (full answers in `src/seed/content.ts`).
 
 ### 3.12 Call to action band
@@ -313,8 +316,8 @@ eyebrow labels, icon boxes or placeholders on the live page.
    `#how-we-work`; photos: man in office + prepaid meter; quote card "Safe work
    for hospital staff. Fair bills for tenants." (What we believe).
 2. **How Click Group started** (`stats` block, torn-edge photo, anchor `story`):
-   the mortuary problem, the lift, accelerator backing, then Click Meter.
-   Button: See the Mortuary Lift System. No numbers until real ones exist.
+   the lifting problem in hospitals, the lift, accelerator backing, then Click Meter.
+   Button: See the Medical Solutions. No numbers until real ones exist.
 3. **What drives us** (`cards` block, pinned photo section like "Who we
    serve", anchor `values`): mission line, then Safety first, Built for here,
    Transparency, Dignity. Photo: wide crop of the apartment building.
@@ -369,7 +372,7 @@ text-only cards and no panels.
     automatically from future token purchases.
   - *Do you install the meters?* [Yes — confirm installation coverage area.]
 
-### 5.2 Mortuary Lift System — `/solutions/mortuary-lift`
+### 5.2 Medical Solutions — `/solutions/medical-solutions`
 
 - **Short description:** Remote-controlled hydraulic lifting for safe,
   dignified mortuary handling.
@@ -398,7 +401,7 @@ text-only cards and no panels.
    daily work at [hospital name].
 2. **Introducing Click Meter** — Prepaid electricity, water and gas billing for
    landlords, with mobile-money payments and instant SMS tokens.
-3. **Why manual lifting in mortuaries has to end** — The hidden cost of
+3. **Why manual lifting in hospitals has to end** — The hidden cost of
    musculoskeletal injuries for healthcare workers.
 
 ---
@@ -414,7 +417,7 @@ text-only cards and no panels.
 - **Text:** Tell us what you need and our team will get back to you within one
   business day.
 - **Form fields:** Name, Phone, Email, Organization, I'm interested in
-  (Click Meter / Mortuary Lift System / Partnership / Other), Message.
+  (Click Meter / Medical Solutions / Partnership / Other), Message.
 - **Office:** Head Office — Goba, Dar es Salaam, Tanzania · [phone] ·
   info@clickgroup.co.tz · Mon–Fri 08:00–17:00
 - **Success message:** Thank you! We've received your message and will be in
@@ -435,8 +438,8 @@ right, split by a vertical rule; copyright bar at the bottom.
   "Get a quote" → `/contact`. Hidden on `/contact`; on a product page it links
   to `/contact?product=<slug>`.
 - **About:** Click Group builds prepaid utility metering for property owners and
-  lifting equipment for hospital mortuaries, from Ifakara, Tanzania.
-- **Columns:** Solutions (Click Meter, Mortuary Lift System); Company (Home,
+  lifting equipment for hospitals, from Ifakara, Tanzania.
+- **Columns:** Solutions (Click Meter, Medical Solutions); Company (Home,
   About, News, Contact).
 - **Contact column:** address, email and phone from Settings. Values in
   [brackets] are placeholders and are hidden, line by line.

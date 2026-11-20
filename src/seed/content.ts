@@ -36,8 +36,8 @@ export const header = {
           description: 'Prepaid electricity, water & gas metering',
         },
         {
-          label: 'Mortuary Lift System',
-          url: '/solutions/mortuary-lift',
+          label: 'Medical Solutions',
+          url: '/solutions/medical-solutions',
           description: 'Remote-controlled hydraulic lifting',
         },
       ],
@@ -55,13 +55,13 @@ export const footer = {
     url: '/contact',
   },
   about:
-    'Click Group builds prepaid utility metering for property owners and lifting equipment for hospital mortuaries, from Ifakara, Tanzania.',
+    'Click Group builds prepaid utility metering for property owners and lifting equipment for hospitals, from Ifakara, Tanzania.',
   columns: [
     {
       title: 'Solutions',
       links: [
         { label: 'Click Meter', url: '/solutions/click-meter' },
-        { label: 'Mortuary Lift System', url: '/solutions/mortuary-lift' },
+        { label: 'Medical Solutions', url: '/solutions/medical-solutions' },
       ],
     },
     {
@@ -131,13 +131,13 @@ export const products = [
     ctaLabel: 'Request a demo',
   },
   {
-    name: 'Mortuary Lift System',
-    slug: 'mortuary-lift',
+    name: 'Medical Solutions',
+    slug: 'medical-solutions',
     order: 2,
     icon: 'heart-pulse',
     tagline: 'No more lifting by hand',
     shortDescription:
-      'A remote-controlled hydraulic lift that removes manual lifting from mortuary work. Safer for staff, more dignified for the deceased.',
+      'A remote-controlled hydraulic lift that takes manual lifting off hospital staff. Safer for staff, more dignified for the people in their care.',
     overview: richText(
       'Moving bodies manually is one of the leading causes of back injury among mortuary and nursing staff. Our hydraulic lift does the heavy work while staff guide it by remote control.',
       'Built from corrosion-resistant, easy-to-sanitize materials, it moves precisely in both vertical and horizontal directions, reducing injuries, sick leave and long-term costs for hospitals.',
@@ -215,13 +215,13 @@ export const posts = [
     ),
   },
   {
-    title: 'Why manual lifting in mortuaries has to end',
+    title: 'Why manual lifting in hospitals has to end',
     slug: 'why-manual-lifting-has-to-end',
     category: 'healthcare',
     author: 'Click Group team',
     publishedAt: '2026-10-20T09:00:00.000Z',
     cover: 'doctor',
-    excerpt: 'Moving bodies by hand puts mortuary and nursing staff at risk of back injury.',
+    excerpt: 'Lifting by hand puts hospital and nursing staff at risk of back injury.',
     body: richText(
       'Back and shoulder injuries are among the most common reasons healthcare workers take time off. In mortuaries, where bodies are still often moved by hand, the strain is repeated many times a day.',
       'The Click Group Mortuary Lift System is a hydraulic lift controlled by remote. Staff guide the movement instead of carrying the weight.',
@@ -290,7 +290,7 @@ export const productMedia = (media: MediaIds): Record<string, Record<string, unk
       },
     ],
   },
-  'mortuary-lift': {
+  'medical-solutions': {
     newsCategory: 'healthcare',
   },
 })
@@ -301,7 +301,7 @@ export const pages = (productIds: Id[], media: MediaIds) => [
     title: 'Home',
     slug: 'home',
     seo: {
-      metaTitle: 'Click Group | Prepaid utility meters and mortuary lifts, Tanzania',
+      metaTitle: 'Click Group | Prepaid utility meters and medical equipment, Tanzania',
       metaDescription:
         'Safe handling equipment for healthcare facilities and prepaid smart metering for property owners, designed and supported in Tanzania.',
     },
@@ -320,15 +320,15 @@ export const pages = (productIds: Id[], media: MediaIds) => [
             text: 'Tenants buy electricity, water and gas tokens with mobile money.',
           },
           {
-            title: 'Mortuary Lift System',
-            url: '/solutions/mortuary-lift',
-            text: 'Staff move bodies by remote control instead of lifting by hand.',
+            title: 'Medical Solutions',
+            url: '/solutions/medical-solutions',
+            text: 'Staff guide the load by remote control instead of lifting by hand.',
           },
         ],
         image: media.doctor,
         secondaryImage: media.womanPhone,
         inset: {
-          title: 'No health worker should injure themselves lifting a body by hand.',
+          title: 'No health worker should injure themselves lifting by hand.',
           text: 'Our mission',
         },
         tags: [],
@@ -349,7 +349,7 @@ export const pages = (productIds: Id[], media: MediaIds) => [
         blockType: 'introAccordion',
         headingMuted: 'We started with one problem in hospitals.',
         heading: 'Now we solve two.',
-        body: 'Our first product came from one problem: mortuary staff injuring their backs lifting bodies by hand. We then applied the same approach to utility billing, where landlords chase payments and tenants dispute their bills.',
+        body: 'Our first product came from one problem: hospital staff injuring their backs lifting by hand. We then applied the same approach to utility billing, where landlords chase payments and tenants dispute their bills.',
         linkCard: {
           lead: 'Learn more about our story',
           title: 'How Click Group started',
@@ -359,8 +359,8 @@ export const pages = (productIds: Id[], media: MediaIds) => [
         items: [
           {
             icon: 'hospital',
-            title: 'Mortuary Lift System',
-            text: 'A remote-controlled hydraulic lift that moves bodies up, down and across, so staff no longer lift by hand. Built from corrosion-resistant materials that are easy to clean.',
+            title: 'Medical Solutions',
+            text: 'A remote-controlled hydraulic lift that moves loads up, down and across, so staff no longer lift by hand. Built from corrosion-resistant materials that are easy to clean.',
           },
           {
             icon: 'zap',
@@ -378,7 +378,7 @@ export const pages = (productIds: Id[], media: MediaIds) => [
         blockType: 'bento',
         anchor: 'solutions',
         heading: 'Our products',
-        intro: 'Click Meter for property owners and tenants. The Mortuary Lift System for hospitals.',
+        intro: 'Click Meter for property owners and tenants. Medical Solutions for hospitals.',
         slides: [
           {
             image: media.tenantHome,
@@ -389,9 +389,9 @@ export const pages = (productIds: Id[], media: MediaIds) => [
           {
             // Placeholder photo: replace with a real healthcare or lift photo.
             image: media.doctor,
-            title: 'Mortuary Lift System',
-            text: 'A remote-controlled hydraulic lift, so hospital staff never have to lift a body by hand.',
-            link: { label: 'Explore the lift', url: '/solutions/mortuary-lift' },
+            title: 'Medical Solutions',
+            text: 'A remote-controlled hydraulic lift, so hospital staff never have to do heavy lifting by hand.',
+            link: { label: 'Explore the lift', url: '/solutions/medical-solutions' },
           },
         ],
         cards: [
@@ -429,19 +429,19 @@ export const pages = (productIds: Id[], media: MediaIds) => [
       {
         blockType: 'spotlight',
         heading: 'No more lifting by hand',
-        // Stand-in until there is a real lift or mortuary photo (one per feature is best).
+        // Stand-in until there is a real lift photo (one per feature is best).
         image: media.doctor,
-        body: 'Moving bodies manually is one of the leading causes of back injury among mortuary and nursing staff. Our hydraulic lift does the heavy work while staff guide it by remote control.',
+        body: 'Lifting by hand is one of the leading causes of back injury among hospital and nursing staff. Our hydraulic lift does the heavy work while staff guide it by remote control.',
         imageOnLeft: true,
         features: products[1].features.map(({ title, text }) => ({ title, text })),
-        cta: { label: 'Request a quote', url: '/contact?product=mortuary-lift' },
+        cta: { label: 'Request a quote', url: '/contact?product=medical-solutions' },
       },
       {
         blockType: 'stats',
         anchor: 'impact',
         heading: 'Built around the people who use it',
         intro:
-          'Tenants who want to pay only for what they use. Landlords who want every payment recorded. Mortuary staff who should never have to lift a body by hand. We design, install and support every system ourselves, from our base in Ifakara.',
+          'Tenants who want to pay only for what they use. Landlords who want every payment recorded. Hospital staff who should never have to do heavy lifting by hand. We design, install and support every system ourselves, from our base in Ifakara.',
         image: media.teamOffice,
         cta: { label: 'More about us', url: '/about' },
         stats: [
@@ -470,7 +470,7 @@ export const pages = (productIds: Id[], media: MediaIds) => [
           {
             icon: 'hospital',
             title: 'Hospitals and health centres',
-            text: 'A remote-controlled lift for the mortuary, so staff no longer move bodies by hand.',
+            text: 'A remote-controlled hydraulic lift, so staff no longer do the heavy lifting by hand.',
           },
         ],
         cta: { label: 'Talk to us', url: '/contact' },
@@ -480,7 +480,7 @@ export const pages = (productIds: Id[], media: MediaIds) => [
         heading: 'What our customers say',
         items: [
           { quote: '[Quote from a landlord using Click Meter.]', name: '[Name]', role: 'Landlord', organization: '[Town]' },
-          { quote: '[Quote from mortuary/nursing staff using the lift.]', name: '[Name]', role: '[Role]', organization: '[Hospital]' },
+          { quote: '[Quote from hospital or nursing staff using the lift.]', name: '[Name]', role: '[Role]', organization: '[Hospital]' },
         ],
       },
       { blockType: 'latestNews', heading: 'News and updates', intro: 'Product news and guides from the Click Group team.', count: 4 },
@@ -488,7 +488,7 @@ export const pages = (productIds: Id[], media: MediaIds) => [
         blockType: 'faq',
         heading: 'Frequently asked questions',
         intro:
-          'Short answers about Click Meter and the Mortuary Lift System. If your question is not here, ask us directly.',
+          'Short answers about Click Meter and our Medical Solutions. If your question is not here, ask us directly.',
         cta: { label: 'Ask a question', url: '/contact' },
         items: [
           {
@@ -506,9 +506,9 @@ export const pages = (productIds: Id[], media: MediaIds) => [
             answer: 'The debt is recorded and recovered gradually from their future token purchases.',
           },
           {
-            question: 'What is the Mortuary Lift System?',
+            question: 'What is the Medical Solutions lift?',
             answer:
-              'A hydraulic lift operated by remote control. It raises and moves bodies so mortuary and nursing staff do not have to lift them by hand.',
+              'A hydraulic lift operated by remote control. It does the heavy lifting so hospital and nursing staff do not have to lift by hand.',
           },
           {
             question: 'Where is Click Group based?',
@@ -536,11 +536,11 @@ export const pages = (productIds: Id[], media: MediaIds) => [
         blockType: 'hero',
         heading: 'Engineering for hospitals and homes, from Ifakara.',
         subheading:
-          'Click Group designs, builds and supports two products in Tanzania: a remote-controlled lift that ends manual lifting in mortuaries, and prepaid meters that make utility bills fair for landlords and tenants.',
+          'Click Group designs, builds and supports two products in Tanzania: a remote-controlled lift that ends manual lifting in hospitals, and prepaid meters that make utility bills fair for landlords and tenants.',
         primaryCta: { label: 'See our products', url: '/#solutions' },
         secondaryCta: { label: '', url: '' },
         highlights: [
-          { title: 'Our story', url: '#story', text: 'How a problem in hospital mortuaries started the company.' },
+          { title: 'Our story', url: '#story', text: 'How a problem in hospitals started the company.' },
           { title: 'How we work', url: '#how-we-work', text: 'We design, build, install and support every system ourselves.' },
         ],
         image: media.teamOffice,
@@ -553,9 +553,9 @@ export const pages = (productIds: Id[], media: MediaIds) => [
         anchor: 'story',
         heading: 'How Click Group started',
         intro:
-          'Click Group began in Ifakara with one problem: mortuary and nursing staff were moving bodies by hand and injuring their backs. We built a remote-controlled hydraulic lift so they no longer have to. With the backing of an accelerator programme, we then took the same approach to another everyday problem, utility bills that landlords and tenants argue about. That became Click Meter.',
+          'Click Group began in Ifakara with one problem: hospital and nursing staff were lifting by hand and injuring their backs. We built a remote-controlled hydraulic lift so they no longer have to. With the backing of an accelerator programme, we then took the same approach to another everyday problem, utility bills that landlords and tenants argue about. That became Click Meter.',
         image: media.doctor,
-        cta: { label: 'See the Mortuary Lift System', url: '/solutions/mortuary-lift' },
+        cta: { label: 'See Medical Solutions', url: '/solutions/medical-solutions' },
         stats: [],
       },
       {
@@ -568,7 +568,7 @@ export const pages = (productIds: Id[], media: MediaIds) => [
           { icon: 'shield-check', title: 'Safety first', text: 'People come before machines. Every product starts with the person who uses it.' },
           { icon: 'wrench', title: 'Built for here', text: 'Designed for local conditions, installed and supported by our own team.' },
           { icon: 'gauge', title: 'Transparency', text: 'Clear data and clear bills, so nobody has to guess what they paid for.' },
-          { icon: 'heart-pulse', title: 'Dignity', text: 'In how we treat the people we work with, and how the deceased are handled.' },
+          { icon: 'heart-pulse', title: 'Dignity', text: 'In how we treat the people we work with, and the people in their care.' },
         ],
       },
       {
@@ -601,7 +601,7 @@ export const pages = (productIds: Id[], media: MediaIds) => [
     slug: 'contact',
     seo: {
       metaTitle: 'Contact Click Group',
-      metaDescription: 'Get a quote for Click Meter or the Mortuary Lift System.',
+      metaDescription: 'Get a quote for Click Meter or our Medical Solutions.',
     },
     layout: [
       {
@@ -610,7 +610,7 @@ export const pages = (productIds: Id[], media: MediaIds) => [
         text: 'Tell us what you need and our team will get back to you within one business day.',
         interests: [
           { label: 'Click Meter' },
-          { label: 'Mortuary Lift System' },
+          { label: 'Medical Solutions' },
           { label: 'Partnership' },
           { label: 'Other' },
         ],

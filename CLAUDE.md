@@ -8,7 +8,9 @@ and CONTENT.md for the agreed sections and default copy.
 - The company is **Click Group**. Never mention the old company name ("MBC",
   "MBC Landbrug", "formerly…", "rebranded") anywhere: copy, alt text, seeds, docs.
 - Products: **Click Meter** (prepaid electricity, water and gas metering for
-  landlords) and the **Mortuary Lift System**.
+  landlords), **Click Gas** and **Medical Solutions** (the remote-controlled
+  hydraulic lift). Keep the word "mortuary" out of nav, home, contact and SEO
+  copy; it may appear only inside the product page and its news article.
 - English only. No public "check my meter" tool.
 - Fonts: Bricolage Grotesque, Inter as fallback. Brand blue `#0070C0` (from the letterhead; see globals.css).
 

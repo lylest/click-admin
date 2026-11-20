@@ -16,6 +16,12 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  // Old product URLs that may still be shared or indexed.
+  async redirects() {
+    return [
+      { source: '/solutions/mortuary-lift', destination: '/solutions/medical-solutions', permanent: true },
+    ]
+  },
   webpack: (webpackConfig) => {
     webpackConfig.resolve.extensionAlias = {
       '.cjs': ['.cts', '.cjs'],
