@@ -801,11 +801,16 @@ export interface Page {
   createdAt: string;
 }
 /**
+ * Each image is used in one place on the site. Replacing the file of an image changes it everywhere it is used. To change the photo in one section, open that section and upload a new image there.
+ *
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "media".
  */
 export interface Media {
   id: number;
+  /**
+   * Replacing this file changes the image in every section that uses it. To change one section only, upload a new image from that section instead.
+   */
   alt: string;
   updatedAt: string;
   createdAt: string;
@@ -1907,6 +1912,9 @@ export interface Header {
          * Leave empty for a dropdown-only item.
          */
         url?: string | null;
+        /**
+         * If this list has a link to a solution (/solutions/...), every solution is listed automatically, in the Solutions order. Add one here only to change its label or description.
+         */
         children?:
           | {
               label: string;
@@ -1949,6 +1957,9 @@ export interface Footer {
   columns?:
     | {
         title: string;
+        /**
+         * If this column has a link to a solution (/solutions/...), every solution is listed automatically, in the Solutions order.
+         */
         links?:
           | {
               label: string;
